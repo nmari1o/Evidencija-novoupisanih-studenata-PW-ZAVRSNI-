@@ -1,0 +1,144 @@
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+h2 {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    float: left;
+}
+
+li a {
+    padding: 20px;
+}
+
+
+
+.sidebar{
+    text-align:center;
+}
+.sidebar ul li{
+   display:inline;
+
+ }
+
+
+.student{
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+
+
+    
+}
+
+.srednja {
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+
+}
+
+.mjesto {
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+
+}
+
+.sveuciliste {
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+
+}
+
+.maturant {
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+
+}
+
+.smjer {
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+ 
+}
+
+.fakultet {
+    border-color: olive;
+    border-style: double;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color:beige;
+    
+}
+
+form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ddd;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #ddd;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  border-bottom: 2px solid #3498db;
+}
+
+form button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #3cb0fd;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,63 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<style>
+    .page-title {
+        margin-top: 20px;
+        text-align:center;
+    }
+    .search-form {
+        margin-top: 20px;
+        text-align:center;
+    }
+    .add-sveuciliste-link {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #3734db;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .sveuciliste {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .edit-sveuciliste-link, .delete-sveuciliste-link {
+        margin-top: 10px;
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .edit-sveuciliste-link:hover, .delete-sveuciliste-link:hover {
+        
+        background-color: #3498db;
+    }
+
+</style>
+
+
+<h2 class="page-title">SVEUČILIŠTA</h2>
+<form method="GET" class="search-form">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+</form>
+<a href="/sveuciliste_form" class="add-sveuciliste-link">UNOS SVEUČILIŠTA</a>
+
+{% for sveuciliste in object_list %}
+<div class="sveuciliste">
+    <p><strong>Naziv sveučilišta</strong>: {{ sveuciliste.naziv_sveucilista }}</p>
+    <p>Lokacija sveučilišta: {{ sveuciliste.sveuciliste_postanski_broj}}</p>
+    <a href="{% url 'main:sveuciliste_update' sveuciliste.naziv_sveucilista %}" class="edit-sveuciliste-link">Edit</a>
+    <a href="{% url 'main:sveuciliste_delete' naziv_sveucilista=sveuciliste.naziv_sveucilista %}" class="delete-sveuciliste-link">Delete</a>
+</div><br>
+{% endfor %}
+
+{% endblock %}
+
+

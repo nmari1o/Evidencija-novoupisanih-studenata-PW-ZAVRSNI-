@@ -1,0 +1,62 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<style>
+    .page-title {
+        margin-top: 20px;
+        text-align:center;
+    }
+    .search-form {
+        margin-top: 20px;
+        text-align:center
+    }
+    .add-mjesto-link {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #3734db;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .mjesto {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .edit-mjesto-link, .delete-mjesto-link {
+        margin-top: 10px;
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .edit-mjesto-link:hover, .delete-mjesto-link:hover {
+        
+        background-color: #3498db;
+    }
+
+  
+    
+</style>
+
+
+
+<h2 class="page-title">MJESTA</h2>
+<form method="GET" class="search-form">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+</form>
+<a href="/mjesto_form" class="add-mjesto-link">UNOS MJESTA</a>
+{% for mjesto in object_list %}
+    <div class="mjesto">
+        <p><strong>Naziv mjesta</strong>: {{ mjesto.naziv_mjesta }}</p>
+        <p>Poštanski broj: {{ mjesto.postanski_broj }}</p>
+        <a href="{% url 'main:mjesto_update' mjesto.naziv_mjesta %}" class="edit-mjesto-link">Edit</a>
+        <a href="{% url 'main:mjesto_delete' postanski_broj=mjesto.postanski_broj %}" class="delete-mjesto-link">Delete</a>
+    </div>
+{% endfor %}
+{% endblock %}
+

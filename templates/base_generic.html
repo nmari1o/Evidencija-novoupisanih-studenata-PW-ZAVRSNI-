@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  /* Global styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  /* Header */
+  header {
+    background-color: #eee;
+    color: #Brown;
+    padding: 20px;
+  }
+
+  header h1 {
+    margin: 0;
+    color: #FFFFF;
+    text-align:center;
+  }
+
+  /* Navigation */
+  nav {
+    background-color: #191970;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .navigation-list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navigation-list li {
+    margin-right: 10px;
+  }
+
+  .navigation-list li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+  }
+
+  /* Logout button */
+  nav form {
+    margin-left: auto;
+  }
+
+  nav form button {
+
+    color: #Arial;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  nav form button:hover {
+    background-color: #555;
+  }
+
+  /* Main content */
+  main {
+    padding: 20px;
+  }
+</style>
+
+<head>
+  <title>{% block title %}Evidencija novoupisanih studenata{% endblock %}</title>
+</head>
+
+<body>
+  <header>
+    <h1>Evidencija novoupisanih studenata</h1>
+  </header>
+  <nav>
+    {% block sidebar %}
+   
+        <ul class="navigation-list">
+            <li><a href="/pocetna"><strong>POČETNA</strong></a></li>
+            <li><a href="/mjesta"><strong>POPIS MJESTA</strong></a></li>
+            <li><a href="/sveucilista"><strong>POPIS SVEUČILIŠTA</strong></a></li>
+            <li><a href="/srednja"><strong>POPIS SREDNJIH ŠKOLA</strong></a></li>
+            <li><a href="/fakultet"><strong>POPIS FAKULTETA</strong></a></li>
+            <li><a href="/smjer"><strong>POPIS SMJEROVA</strong></a></li>
+            <li><a href="/maturant"><strong>POPIS STUDENATA KOJI SU UPISALI 1. GODINU PREDDIPLOMSKOG STUDIJA</strong></a></li>
+            <li><a href="/student"><strong>POPIS STUDENATA KOJI SU UPISALI 1. GODINU DIPLOMSKOG STUDIJA</strong></a></li>
+
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+              </form>
+        </ul>
+        {% endblock %}
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

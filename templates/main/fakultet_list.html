@@ -1,0 +1,63 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<style>
+    .page-title {
+        margin-top: 20px;
+        text-align:center;
+    }
+    .search-form {
+        margin-top: 20px;
+        text-align:center
+    }
+    .add-fakultet-link {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #3734db;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .fakultet {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .edit-fakultet-link, .delete-fakultet-link {
+        margin-top: 10px;
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .edit-fakultet-link:hover, .delete-fakultet-link:hover {
+        
+        background-color: #3498db;
+    }
+
+  
+    
+</style>
+
+
+
+
+
+<h2 class="page-title">FAKULTETI</h2>
+<form method="GET" class="search-form">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+</form>
+<a href="/fakultet_form" class="add-fakultet-link">UNOS FAKULTETA</a>
+{% for fakultet in object_list %}
+<div class="fakultet">
+    <p><strong>Naziv fakulteta</strong>: {{ fakultet.fakultet }}</p>
+    <p>Sveučilište kojem fakultet pripada: {{ fakultet.fakultet_sveuciliste }}</p>
+    <a href="{% url 'main:fakultet_update' fakultet.fakultet  %}" class="edit-fakultet-link" >Edit</a>
+    <a href="{% url 'main:fakultet_delete' fakultet=fakultet.fakultet %}" class="delete-fakultet-link" >Delete</a>
+</div><br>
+{% endfor %}
+{% endblock %}

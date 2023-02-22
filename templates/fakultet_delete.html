@@ -1,0 +1,52 @@
+
+{% block content %}
+<style>
+  form {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ddd;
+  }
+  
+  
+  form button[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #3cb0fd;
+  }
+  
+  .cancel-link {
+    color: #3498db;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .cancel-link:hover {
+    text-decoration: underline;
+  }
+</style>  
+
+
+
+
+  <form method="POST" enctype="multipart/form-data" style="max-width: 500px; margin: 0 auto;">
+    <h2 style="text-align: center;">Jeste li sigurni da želite obrisati fakultet {{ fakultet.fakultet }}</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary" style="margin: 20px auto; display: block;">Delete</button>
+    <a href="{% url 'main:fakultet' %}" class="cancel-link" style="display: block; text-align: center;">Odustani</a>
+  </form>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,67 @@
+{% extends "base_generic.html" %}
+{% block content %}
+
+<style>
+    .page-title {
+        margin-top: 20px;
+        text-align:center;
+    }
+    .search-form {
+        margin-top: 20px;
+        text-align:center;
+    }
+    .add-student-link {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #3734db;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .student {
+        background-color: #f2f2f2;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    .edit-student-link, .delete-student-link {
+        margin-top: 10px;
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    .edit-student-link:hover, .delete-student-link:hover {
+        
+        background-color: #3498db;
+    }
+
+</style>
+
+
+<h2 class="page-title">STUDENTI</h2>
+<form method="GET" class="search-form">
+    <label for="search">Search:</label>
+    <input type="text" id="search" name="search">
+    <button type="submit">Search</button>
+</form>
+<a href="/student_form" class="add-student-link">UNOS STUDENTA</a>
+
+{% for student in object_list %}
+<div class="student">
+    <p><strong>Ime studenta</strong>: {{ student.ime_studenta }}</p>
+    <p><strong>Prezime studenta</strong>: {{ student.prezime_studenta }}</p>
+    <p>JMBAG : {{ student.jmbag_studenta }}</p>
+    <p>Email studenta: {{ student.email_studenta }}</p>
+    <p>Upisani smjer: {{ student.student_smjer }}</p>
+    <p>Fakultet studenta: {{ student.student_fakultet }}</p>
+    <p>Lokacija studenta: {{ student.student_postanski_broj }}</p>
+    <p>Datum upisa: {{ student.student_datum_upisa }}</p>
+    <a href="{% url 'main:student_update' student.jmbag_studenta %}" class="edit-student-link">Edit</a>
+    <a href="{% url 'main:student_delete' jmbag_studenta=student.jmbag_studenta %}" class="delete-student-link">Delete</a>
+</div>
+<br>
+{% endfor %}
+{% endblock %}
